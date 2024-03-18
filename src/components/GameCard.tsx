@@ -20,7 +20,7 @@ const GameCard = ({ game }: Props) => {
   return (
     //overflow accounts for the img being bigger than its container
 
-    <Card>
+    <Card variant="filled">
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <HStack justifyContent="space-between" marginBottom={3}>
@@ -30,7 +30,7 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
-        {game.metacritic >= 85 && <Badge>Highly Rated</Badge>}
+        {game.metacritic >= 85 && <Badge variant="solid">Highly Rated</Badge>}
       </CardBody>
     </Card>
   );
