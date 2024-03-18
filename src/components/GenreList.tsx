@@ -19,7 +19,15 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <>
+        <Heading fontSize="2xl" marginY={3}>
+          Genres
+        </Heading>
+        <Spinner />
+      </>
+    );
 
   return (
     <>
@@ -40,8 +48,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Button
                 whiteSpace="normal"
                 textAlign="left"
-                fontSize="lg"
-                variant="link"
+                fontSize="md"
+                variant={selectedGenre?.id === genre.id ? "outline" : "ghost"}
                 onClick={() => onSelectGenre(genre)}
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               >
