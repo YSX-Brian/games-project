@@ -42,7 +42,11 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" paddingLeft={3}>
           <GenreList
-            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            onSelectGenre={(genre) =>
+              gameQuery.genre === null
+                ? setGameQuery({ ...gameQuery, genre })
+                : setGameQuery({ ...gameQuery, genre: null })
+            }
             selectedGenre={gameQuery.genre}
           />
         </GridItem>
