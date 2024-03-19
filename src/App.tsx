@@ -42,8 +42,9 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" paddingLeft={3}>
           <GenreList
+            //click the already selected genre to toggle off
             onSelectGenre={(genre) =>
-              gameQuery.genre === null || !gameQuery.genre
+              !gameQuery.genre || gameQuery.genre !== genre
                 ? setGameQuery({ ...gameQuery, genre })
                 : setGameQuery({ ...gameQuery, genre: null })
             }
