@@ -12,10 +12,15 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 
   if (error) return null;
 
+  const menuName =
+    selectedPlatform && selectedPlatform.name.length > 9
+      ? selectedPlatform.name.substring(0, 7) + "..."
+      : selectedPlatform?.name;
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform ? selectedPlatform.name : "Platforms"}
+        {selectedPlatform ? menuName : "Platforms"}
       </MenuButton>
       <MenuList>
         <MenuItem onClick={() => onSelectPlatform(null)}>All</MenuItem>

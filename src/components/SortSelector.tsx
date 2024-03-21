@@ -20,10 +20,15 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
     (order) => order.value === sortOrder
   );
 
+  const sortName =
+    currentSortOrder && currentSortOrder?.label.length > 9
+      ? currentSortOrder.label.substring(0, 7) + "..."
+      : currentSortOrder?.label;
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {currentSortOrder?.label || "Relevance"}
+        {sortName || "Relevance"}
       </MenuButton>
       <MenuList>
         {sortOrders.map((item) => (
