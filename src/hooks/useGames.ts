@@ -24,6 +24,7 @@ const useGames = (gameQuery: GameQuery) => {
         parent_platforms: gameQuery.platform?.id,
         ordering: gameQuery.sortOrder,
         search: gameQuery.searchText,
+        metacritic: "65, 100",
       },
     },
     //refresh data every time gameQuery object changes
