@@ -30,7 +30,7 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
-        {game.metacritic >= 85 && <Badge variant="solid">Highly Rated</Badge>}
+        {game.metacritic >= 90 && <Badge variant="solid">Highly Rated</Badge>}
       </CardBody>
     </Card>
   );
